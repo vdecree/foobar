@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "npm run serve",
-    "serve": "ELEVENTY_ENV=development npx eleventy --serve",
+    "admin": "npx netlify-cms-proxy-server",
+    "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
     "production": "npx eleventy"
   },
   "blyth": {
@@ -24,6 +25,7 @@
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@bly-th/css": "^0.1.5",
-    "clean-css": "^4.2.3"
+    "clean-css": "^4.2.3",
+    "cross-env": "^7.0.3"
   }
 }

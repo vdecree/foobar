@@ -4,6 +4,7 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 
 // Import filters
 const cssMinFilter = require('./src/filters/css-min.js');
+const markdownFilter = require('./src/filters/markdown.js');
 
 module.exports = (eleventyConfig) => {
   // Add plugins
@@ -12,8 +13,11 @@ module.exports = (eleventyConfig) => {
 
   // Add filters
   eleventyConfig.addFilter('cssmin', cssMinFilter);
+  eleventyConfig.addFilter('markdown', markdownFilter);
 
   // Pass through
+  eleventyConfig.addPassthroughCopy('./src/admin/');
+  eleventyConfig.addPassthroughCopy('./src/uploads/');
   eleventyConfig.addPassthroughCopy('./src/img/');
   eleventyConfig.addPassthroughCopy('./src/fonts/');
   eleventyConfig.addPassthroughCopy('./src/js/');
